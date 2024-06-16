@@ -1,7 +1,6 @@
 const DB_NAME = "FileStorageDB";
 const STORE_NAME = "FilesStore";
 
-// Function to store a file in IndexedDB with metadata
 async function storeFile(file: File): Promise<void> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
@@ -36,7 +35,6 @@ async function storeFile(file: File): Promise<void> {
   });
 }
 
-// Function to get a file from IndexedDB by its key
 async function getFile(key: number): Promise<FileRecord | null> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
@@ -64,7 +62,6 @@ async function removeFile(key: number): Promise<void> {
   });
 }
 
-// Function to get all stored files metadata from IndexedDB
 async function getAllStoredFiles(): Promise<FileRecord[]> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
@@ -78,7 +75,6 @@ async function getAllStoredFiles(): Promise<FileRecord[]> {
   });
 }
 
-// Helper function to open the database
 function openDatabase(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, 1);
