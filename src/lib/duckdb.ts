@@ -12,7 +12,7 @@ const config: DuckDBConfig = {
   },
 };
 
-export default function initDuckDb() {
+export function initDuckDb() {
   initializeDuckDb({ config, debug: true })
     .then((duckDb) => {
       console.log("DuckDB initialized", duckDb);
