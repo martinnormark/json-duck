@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import initDuckDb from "./duckdb-init";
+import initDuckDb from "./lib/duckdb-init";
 import { useDuckDb } from "duckdb-wasm-kit";
 
 import { getAllStoredFiles, storeFile } from "./lib/storage";
