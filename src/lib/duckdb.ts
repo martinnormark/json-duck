@@ -1,5 +1,5 @@
 import { DuckDBConfig } from "@duckdb/duckdb-wasm";
-import { initializeDuckDb } from "duckdb-wasm-kit";
+import { AsyncDuckDB, initializeDuckDb } from "duckdb-wasm-kit";
 
 const config: DuckDBConfig = {
   query: {
@@ -13,11 +13,28 @@ const config: DuckDBConfig = {
 };
 
 export function initDuckDb() {
-  initializeDuckDb({ config, debug: true })
+  initializeDuckDb({ config, debug: false })
     .then((duckDb) => {
       console.log("DuckDB initialized", duckDb);
     })
     .catch((error) => {
       console.error("DuckDB initialization failed", error);
     });
+}
+
+export function registerFile(db: AsyncDuckDB, filename: string, file: File) {
+  return new Promise<Uint8Array>((resolve, reject) => {
+    if (!file) {
+      reject("No file provided");
+      return;
+    }
+
+    file
+      .arrayBuffer()
+      .then((buffer) => {
+        db.registerFileBuffer(filename, new Uint8Array(buffer));
+        resolve(new Uint8Array(buffer));
+      })
+      .catch(reject);
+  });
 }
