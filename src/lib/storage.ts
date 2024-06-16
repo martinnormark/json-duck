@@ -48,7 +48,6 @@ async function getFile(key: number): Promise<FileRecord | null> {
   });
 }
 
-// Function to remove a file from IndexedDB by its key
 async function removeFile(key: number): Promise<void> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
