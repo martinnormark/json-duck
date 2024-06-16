@@ -19,7 +19,7 @@ function Layout({ children }: LayoutProps) {
                 href="#"
                 className="flex items-center gap-2 text-lg font-semibold md:text-base"
               >
-                <Drumstick color="#f59e0b" size={24} />
+                <Drumstick className="text-amber-500" size={24} />
                 <span className="text-amber-500">json duck</span>
               </a>
               {/* <a
