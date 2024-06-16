@@ -12,6 +12,7 @@ async function storeFile(file: File): Promise<void> {
       const fileRecord = {
         fileName: file.name,
         fileType: file.type,
+        fileSize: file.size,
         fileData: fileData,
         uploadDate: new Date(),
       };
@@ -102,6 +103,7 @@ interface FileRecord {
   id?: number;
   fileName: string;
   fileType: string;
+  fileSize: number;
   fileData: ArrayBuffer | string | null;
   uploadDate: Date;
 }
