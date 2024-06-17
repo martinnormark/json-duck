@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 import { initDuckDb } from "./lib/duckdb";
@@ -7,13 +7,11 @@ import { useDuckDb } from "duckdb-wasm-kit";
 import { getAllStoredFiles, storeFile } from "./lib/storage";
 
 function App() {
-  const [count, _] = useState(0);
-
   useEffect(() => {
     initDuckDb();
   }, []);
 
-  const { db, loading, error } = useDuckDb();
+  const { db } = useDuckDb();
 
   async function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file: File | null | undefined = event.target.files?.item(0);
