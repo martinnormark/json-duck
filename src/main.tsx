@@ -3,11 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Layout from "./Layout.tsx";
 import AppRoot from "./AppRoot.tsx";
+import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Layout>
-      <AppRoot />
+      <App />
     </Layout>
   </React.StrictMode>
 );

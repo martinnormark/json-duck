@@ -1,3 +1,9 @@
+import { FileRecord } from "@/domain/file-store";
+
+interface StoredFileRecord extends FileRecord {
+  fileData: ArrayBuffer | string | null;
+}
+
 const DB_NAME = "FileStorageDB";
 const STORE_NAME = "FilesStore";
 
@@ -8,7 +14,7 @@ async function storeFile(file: File): Promise<void> {
 
     reader.onload = async () => {
       const fileData = reader.result;
-      const fileRecord = {
+      const fileRecord: StoredFileRecord = {
         fileName: file.name,
         fileType: file.type,
         fileSize: file.size,
@@ -35,7 +41,7 @@ async function storeFile(file: File): Promise<void> {
   });
 }
 
-async function getFile(key: number): Promise<FileRecord | null> {
+async function getFile(key: number): Promise<StoredFileRecord | null> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, "readonly");
@@ -61,7 +67,7 @@ async function removeFile(key: number): Promise<void> {
   });
 }
 
-async function getAllStoredFiles(): Promise<FileRecord[]> {
+async function getAllStoredFiles(): Promise<StoredFileRecord[]> {
   const db = await openDatabase();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(STORE_NAME, "readonly");
@@ -92,15 +98,6 @@ function openDatabase(): Promise<IDBDatabase> {
       resolve((event.target as IDBOpenDBRequest).result);
     request.onerror = () => reject(new Error("Failed to open IndexedDB"));
   });
-}
-
-interface FileRecord {
-  id?: number;
-  fileName: string;
-  fileType: string;
-  fileSize: number;
-  fileData: ArrayBuffer | string | null;
-  uploadDate: Date;
 }
 
 export { storeFile, getFile, removeFile, getAllStoredFiles };

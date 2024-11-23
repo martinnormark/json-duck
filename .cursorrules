@@ -1,0 +1,1035 @@
+    You are an expert full-stack developer proficient in TypeScript, React, Next.js, and modern UI/UX frameworks (e.g., Tailwind CSS, Shadcn UI, Radix UI). Your task is to produce the most optimized and maintainable Next.js code, following best practices and adhering to the principles of clean code and robust architecture.
+
+    ### Objective
+    - Create a Next.js solution that is not only functional but also adheres to the best practices in performance, security, and maintainability.
+
+    ### Code Style and Structure
+    - Write concise, technical TypeScript code with accurate examples.
+    - Use functional and declarative programming patterns; avoid classes.
+    - Favor iteration and modularization over code duplication.
+    - Use descriptive variable names with auxiliary verbs (e.g., `isLoading`, `hasError`).
+    - Structure files with exported components, subcomponents, helpers, static content, and types.
+    - Use lowercase with dashes for directory names (e.g., `components/auth-wizard`).
+
+    ### Optimization and Best Practices
+    - Minimize the use of `'use client'`, `useEffect`, and `setState`; favor React Server Components (RSC) and Next.js SSR features.
+    - Implement dynamic imports for code splitting and optimization.
+    - Use responsive design with a mobile-first approach.
+    - Optimize images: use WebP format, include size data, implement lazy loading.
+
+    ### Error Handling and Validation
+    - Prioritize error handling and edge cases:
+      - Use early returns for error conditions.
+      - Implement guard clauses to handle preconditions and invalid states early.
+      - Use custom error types for consistent error handling.
+
+    ### UI and Styling
+    - Use modern UI frameworks (e.g., Tailwind CSS, Shadcn UI, Radix UI) for styling.
+    - Implement consistent design and responsive patterns across platforms.
+
+    ### State Management and Data Fetching
+    - Use modern state management solutions (e.g., Zustand, TanStack React Query) to handle global state and data fetching.
+    - Implement validation using Zod for schema validation.
+
+    ### Security and Performance
+    - Implement proper error handling, user input validation, and secure coding practices.
+    - Follow performance optimization techniques, such as reducing load times and improving rendering efficiency.
+
+    ### Testing and Documentation
+    - Write unit tests for components using Jest and React Testing Library.
+    - Provide clear and concise comments for complex logic.
+    - Use JSDoc comments for functions and components to improve IDE intellisense.
+
+    ### Methodology
+    1. **System 2 Thinking**: Approach the problem with analytical rigor. Break down the requirements into smaller, manageable parts and thoroughly consider each step before implementation.
+    2. **Tree of Thoughts**: Evaluate multiple possible solutions and their consequences. Use a structured approach to explore different paths and select the optimal one.
+    3. **Iterative Refinement**: Before finalizing the code, consider improvements, edge cases, and optimizations. Iterate through potential enhancements to ensure the final solution is robust.
+
+    **Process**:
+    1. **Deep Dive Analysis**: Begin by conducting a thorough analysis of the task at hand, considering the technical requirements and constraints.
+    2. **Planning**: Develop a clear plan that outlines the architectural structure and flow of the solution, using <PLANNING> tags if necessary.
+    3. **Implementation**: Implement the solution step-by-step, ensuring that each part adheres to the specified best practices.
+    4. **Review and Optimize**: Perform a review of the code, looking for areas of potential optimization and improvement.
+    5. **Finalization**: Finalize the code by ensuring it meets all requirements, is secure, and is performant.
+
+Markdown Content:
+JSON Processing Functions – DuckDB
+===============
+
+[![Image 2: DuckDB Logo for Download](https://duckdb.org/images/logo-dl/DuckDB_Logo-horizontal.svg)](https://duckdb.org/)
+
+[Documentation](https://duckdb.org/docs/)
+
+- [Getting started](https://duckdb.org/docs)
+- [Installation](https://duckdb.org/docs/installation/)
+- [How-to guides](https://duckdb.org/docs/guides/index)
+- [Data import](https://duckdb.org/docs/data/overview)
+- [Client APIs](https://duckdb.org/docs/api/overview)
+- [SQL](https://duckdb.org/docs/sql/introduction)
+- [Why DuckDB](https://duckdb.org/why_duckdb)
+- [Media](https://duckdb.org/media)
+- [FAQ](https://duckdb.org/faq)
+
+[Blog](https://duckdb.org/news/)
+
+[GitHub 24.5k](https://github.com/duckdb/duckdb)
+
+[Support](https://duckdblabs.com/#support)
+
+[Support](https://duckdblabs.com/#support)
+
+Search Shortcut cmd + k | ctrl + k
+
+Search cmd+k ctrl+k
+
+- [Installation](https://duckdb.org/docs/installation/index)
+- Documentation
+
+- [Getting Started](https://duckdb.org/docs/index)
+- Connect
+
+- [Overview](https://duckdb.org/docs/connect/overview)
+- [Concurrency](https://duckdb.org/docs/connect/concurrency)
+
+- Data Import
+
+- [Overview](https://duckdb.org/docs/data/overview)
+- [Data Sources](https://duckdb.org/docs/data/data_sources)
+- CSV Files
+
+- [Overview](https://duckdb.org/docs/data/csv/overview)
+- [Auto Detection](https://duckdb.org/docs/data/csv/auto_detection)
+- [Reading Faulty CSV Files](https://duckdb.org/docs/data/csv/reading_faulty_csv_files)
+- [Tips](https://duckdb.org/docs/data/csv/tips)
+
+- JSON Files
+
+- [Overview](https://duckdb.org/docs/data/json/overview)
+- [Creating JSON](https://duckdb.org/docs/data/json/creating_json)
+- [Loading JSON](https://duckdb.org/docs/data/json/loading_json)
+- [Writing JSON](https://duckdb.org/docs/data/json/writing_json)
+- [JSON Type](https://duckdb.org/docs/data/json/json_type)
+- [JSON Functions](https://duckdb.org/docs/data/json/json_functions)
+- [Format Settings](https://duckdb.org/docs/data/json/format_settings)
+- [Installing and Loading](https://duckdb.org/docs/data/json/installing_and_loading)
+- [SQL to / from JSON](https://duckdb.org/docs/data/json/sql_to_and_from_json)
+- [Caveats](https://duckdb.org/docs/data/json/caveats)
+
+- Multiple Files
+
+- [Overview](https://duckdb.org/docs/data/multiple_files/overview)
+- [Combining Schemas](https://duckdb.org/docs/data/multiple_files/combining_schemas)
+
+- Parquet Files
+
+- [Overview](https://duckdb.org/docs/data/parquet/overview)
+- [Metadata](https://duckdb.org/docs/data/parquet/metadata)
+- [Encryption](https://duckdb.org/docs/data/parquet/encryption)
+- [Tips](https://duckdb.org/docs/data/parquet/tips)
+
+- Partitioning
+
+- [Hive Partitioning](https://duckdb.org/docs/data/partitioning/hive_partitioning)
+- [Partitioned Writes](https://duckdb.org/docs/data/partitioning/partitioned_writes)
+
+- [Appender](https://duckdb.org/docs/data/appender)
+- [INSERT Statements](https://duckdb.org/docs/data/insert)
+
+- Client APIs
+
+- [Overview](https://duckdb.org/docs/api/overview)
+- C
+
+- [Overview](https://duckdb.org/docs/api/c/overview)
+- [Startup](https://duckdb.org/docs/api/c/connect)
+- [Configuration](https://duckdb.org/docs/api/c/config)
+- [Query](https://duckdb.org/docs/api/c/query)
+- [Data Chunks](https://duckdb.org/docs/api/c/data_chunk)
+- [Vectors](https://duckdb.org/docs/api/c/vector)
+- [Values](https://duckdb.org/docs/api/c/value)
+- [Types](https://duckdb.org/docs/api/c/types)
+- [Prepared Statements](https://duckdb.org/docs/api/c/prepared)
+- [Appender](https://duckdb.org/docs/api/c/appender)
+- [Table Functions](https://duckdb.org/docs/api/c/table_functions)
+- [Replacement Scans](https://duckdb.org/docs/api/c/replacement_scans)
+- [API Reference](https://duckdb.org/docs/api/c/api)
+
+- [C++](https://duckdb.org/docs/api/cpp)
+- CLI
+
+- [Overview](https://duckdb.org/docs/api/cli/overview)
+- [Arguments](https://duckdb.org/docs/api/cli/arguments)
+- [Dot Commands](https://duckdb.org/docs/api/cli/dot_commands)
+- [Output Formats](https://duckdb.org/docs/api/cli/output_formats)
+- [Editing](https://duckdb.org/docs/api/cli/editing)
+- [Autocomplete](https://duckdb.org/docs/api/cli/autocomplete)
+- [Syntax Highlighting](https://duckdb.org/docs/api/cli/syntax_highlighting)
+
+- [Dart](https://duckdb.org/docs/api/dart)
+- [Go](https://duckdb.org/docs/api/go)
+- [Java](https://duckdb.org/docs/api/java)
+- [Julia](https://duckdb.org/docs/api/julia)
+- Node.js
+
+- [Overview](https://duckdb.org/docs/api/nodejs/overview)
+- [API Reference](https://duckdb.org/docs/api/nodejs/reference)
+
+- Python
+
+- [Overview](https://duckdb.org/docs/api/python/overview)
+- [Data Ingestion](https://duckdb.org/docs/api/python/data_ingestion)
+- [Conversion between DuckDB and Python](https://duckdb.org/docs/api/python/conversion)
+- [DB API](https://duckdb.org/docs/api/python/dbapi)
+- [Relational API](https://duckdb.org/docs/api/python/relational_api)
+- [Function API](https://duckdb.org/docs/api/python/function)
+- [Types API](https://duckdb.org/docs/api/python/types)
+- [Expression API](https://duckdb.org/docs/api/python/expression)
+- [Spark API](https://duckdb.org/docs/api/python/spark_api)
+- [API Reference](https://duckdb.org/docs/api/python/reference)
+- [Known Python Issues](https://duckdb.org/docs/api/python/known_issues)
+
+- [R](https://duckdb.org/docs/api/r)
+- [Rust](https://duckdb.org/docs/api/rust)
+- [Swift](https://duckdb.org/docs/api/swift)
+- Wasm
+
+- [Overview](https://duckdb.org/docs/api/wasm/overview)
+- [Instantiation](https://duckdb.org/docs/api/wasm/instantiation)
+- [Data Ingestion](https://duckdb.org/docs/api/wasm/data_ingestion)
+- [Query](https://duckdb.org/docs/api/wasm/query)
+- [Extensions](https://duckdb.org/docs/api/wasm/extensions)
+
+- [ADBC](https://duckdb.org/docs/api/adbc)
+- ODBC
+
+- [Overview](https://duckdb.org/docs/api/odbc/overview)
+- [Linux Setup](https://duckdb.org/docs/api/odbc/linux)
+- [Windows Setup](https://duckdb.org/docs/api/odbc/windows)
+- [macOS Setup](https://duckdb.org/docs/api/odbc/macos)
+- [Configuration](https://duckdb.org/docs/api/odbc/configuration)
+
+- SQL
+
+- [Introduction](https://duckdb.org/docs/sql/introduction)
+- Statements
+
+- [Overview](https://duckdb.org/docs/sql/statements/overview)
+- [ANALYZE](https://duckdb.org/docs/sql/statements/analyze)
+- [ALTER TABLE](https://duckdb.org/docs/sql/statements/alter_table)
+- [ALTER VIEW](https://duckdb.org/docs/sql/statements/alter_view)
+- [ATTACH and DETACH](https://duckdb.org/docs/sql/statements/attach)
+- [CALL](https://duckdb.org/docs/sql/statements/call)
+- [CHECKPOINT](https://duckdb.org/docs/sql/statements/checkpoint)
+- [COMMENT ON](https://duckdb.org/docs/sql/statements/comment_on)
+- [COPY](https://duckdb.org/docs/sql/statements/copy)
+- [CREATE INDEX](https://duckdb.org/docs/sql/statements/create_index)
+- [CREATE MACRO](https://duckdb.org/docs/sql/statements/create_macro)
+- [CREATE SCHEMA](https://duckdb.org/docs/sql/statements/create_schema)
+- [CREATE SECRET](https://duckdb.org/docs/sql/statements/create_secret)
+- [CREATE SEQUENCE](https://duckdb.org/docs/sql/statements/create_sequence)
+- [CREATE TABLE](https://duckdb.org/docs/sql/statements/create_table)
+- [CREATE VIEW](https://duckdb.org/docs/sql/statements/create_view)
+- [CREATE TYPE](https://duckdb.org/docs/sql/statements/create_type)
+- [DELETE](https://duckdb.org/docs/sql/statements/delete)
+- [DESCRIBE](https://duckdb.org/docs/sql/statements/describe)
+- [DROP](https://duckdb.org/docs/sql/statements/drop)
+- [EXPORT and IMPORT DATABASE](https://duckdb.org/docs/sql/statements/export)
+- [INSERT](https://duckdb.org/docs/sql/statements/insert)
+- [PIVOT](https://duckdb.org/docs/sql/statements/pivot)
+- [Profiling](https://duckdb.org/docs/sql/statements/profiling)
+- [SELECT](https://duckdb.org/docs/sql/statements/select)
+- [SET / RESET](https://duckdb.org/docs/sql/statements/set)
+- [SET VARIABLE](https://duckdb.org/docs/sql/statements/set_variable)
+- [SUMMARIZE](https://duckdb.org/docs/sql/statements/summarize)
+- [Transaction Management](https://duckdb.org/docs/sql/statements/transactions)
+- [UNPIVOT](https://duckdb.org/docs/sql/statements/unpivot)
+- [UPDATE](https://duckdb.org/docs/sql/statements/update)
+- [USE](https://duckdb.org/docs/sql/statements/use)
+- [VACUUM](https://duckdb.org/docs/sql/statements/vacuum)
+- [LOAD / INSTALL](https://duckdb.org/docs/sql/statements/load_and_install)
+
+- Query Syntax
+
+- [SELECT](https://duckdb.org/docs/sql/query_syntax/select)
+- [FROM and JOIN](https://duckdb.org/docs/sql/query_syntax/from)
+- [WHERE](https://duckdb.org/docs/sql/query_syntax/where)
+- [GROUP BY](https://duckdb.org/docs/sql/query_syntax/groupby)
+- [GROUPING SETS](https://duckdb.org/docs/sql/query_syntax/grouping_sets)
+- [HAVING](https://duckdb.org/docs/sql/query_syntax/having)
+- [ORDER BY](https://duckdb.org/docs/sql/query_syntax/orderby)
+- [LIMIT and OFFSET](https://duckdb.org/docs/sql/query_syntax/limit)
+- [SAMPLE](https://duckdb.org/docs/sql/query_syntax/sample)
+- [Unnesting](https://duckdb.org/docs/sql/query_syntax/unnest)
+- [WITH](https://duckdb.org/docs/sql/query_syntax/with)
+- [WINDOW](https://duckdb.org/docs/sql/query_syntax/window)
+- [QUALIFY](https://duckdb.org/docs/sql/query_syntax/qualify)
+- [VALUES](https://duckdb.org/docs/sql/query_syntax/values)
+- [FILTER](https://duckdb.org/docs/sql/query_syntax/filter)
+- [Set Operations](https://duckdb.org/docs/sql/query_syntax/setops)
+- [Prepared Statements](https://duckdb.org/docs/sql/query_syntax/prepared_statements)
+
+- Data Types
+
+- [Overview](https://duckdb.org/docs/sql/data_types/overview)
+- [Array](https://duckdb.org/docs/sql/data_types/array)
+- [Bitstring](https://duckdb.org/docs/sql/data_types/bitstring)
+- [Blob](https://duckdb.org/docs/sql/data_types/blob)
+- [Boolean](https://duckdb.org/docs/sql/data_types/boolean)
+- [Date](https://duckdb.org/docs/sql/data_types/date)
+- [Enum](https://duckdb.org/docs/sql/data_types/enum)
+- [Interval](https://duckdb.org/docs/sql/data_types/interval)
+- [List](https://duckdb.org/docs/sql/data_types/list)
+- [Literal Types](https://duckdb.org/docs/sql/data_types/literal_types)
+- [Map](https://duckdb.org/docs/sql/data_types/map)
+- [NULL Values](https://duckdb.org/docs/sql/data_types/nulls)
+- [Numeric](https://duckdb.org/docs/sql/data_types/numeric)
+- [Struct](https://duckdb.org/docs/sql/data_types/struct)
+- [Text](https://duckdb.org/docs/sql/data_types/text)
+- [Time](https://duckdb.org/docs/sql/data_types/time)
+- [Timestamp](https://duckdb.org/docs/sql/data_types/timestamp)
+- [Time Zones](https://duckdb.org/docs/sql/data_types/timezones)
+- [Union](https://duckdb.org/docs/sql/data_types/union)
+- [Typecasting](https://duckdb.org/docs/sql/data_types/typecasting)
+
+- Expressions
+
+- [Overview](https://duckdb.org/docs/sql/expressions/overview)
+- [CASE Statement](https://duckdb.org/docs/sql/expressions/case)
+- [Casting](https://duckdb.org/docs/sql/expressions/cast)
+- [Collations](https://duckdb.org/docs/sql/expressions/collations)
+- [Comparisons](https://duckdb.org/docs/sql/expressions/comparison_operators)
+- [IN Operator](https://duckdb.org/docs/sql/expressions/in)
+- [Logical Operators](https://duckdb.org/docs/sql/expressions/logical_operators)
+- [Star Expression](https://duckdb.org/docs/sql/expressions/star)
+- [Subqueries](https://duckdb.org/docs/sql/expressions/subqueries)
+
+- Functions
+
+- [Overview](https://duckdb.org/docs/sql/functions/overview)
+- [Aggregate Functions](https://duckdb.org/docs/sql/functions/aggregates)
+- [Array Functions](https://duckdb.org/docs/sql/functions/array)
+- [Bitstring Functions](https://duckdb.org/docs/sql/functions/bitstring)
+- [Blob Functions](https://duckdb.org/docs/sql/functions/blob)
+- [Date Format Functions](https://duckdb.org/docs/sql/functions/dateformat)
+- [Date Functions](https://duckdb.org/docs/sql/functions/date)
+- [Date Part Functions](https://duckdb.org/docs/sql/functions/datepart)
+- [Enum Functions](https://duckdb.org/docs/sql/functions/enum)
+- [Interval Functions](https://duckdb.org/docs/sql/functions/interval)
+- [Lambda Functions](https://duckdb.org/docs/sql/functions/lambda)
+- [List Functions](https://duckdb.org/docs/sql/functions/list)
+- [Map Functions](https://duckdb.org/docs/sql/functions/map)
+- [Nested Functions](https://duckdb.org/docs/sql/functions/nested)
+- [Numeric Functions](https://duckdb.org/docs/sql/functions/numeric)
+- [Pattern Matching](https://duckdb.org/docs/sql/functions/pattern_matching)
+- [Regular Expressions](https://duckdb.org/docs/sql/functions/regular_expressions)
+- [Struct Functions](https://duckdb.org/docs/sql/functions/struct)
+- [Text Functions](https://duckdb.org/docs/sql/functions/char)
+- [Time Functions](https://duckdb.org/docs/sql/functions/time)
+- [Timestamp Functions](https://duckdb.org/docs/sql/functions/timestamp)
+- [Timestamp with Time Zone Functions](https://duckdb.org/docs/sql/functions/timestamptz)
+- [Union Functions](https://duckdb.org/docs/sql/functions/union)
+- [Utility Functions](https://duckdb.org/docs/sql/functions/utility)
+- [Window Functions](https://duckdb.org/docs/sql/functions/window_functions)
+
+- [Constraints](https://duckdb.org/docs/sql/constraints)
+- [Indexes](https://duckdb.org/docs/sql/indexes)
+- Meta Queries
+
+- [Information Schema](https://duckdb.org/docs/sql/meta/information_schema)
+- [Metadata Functions](https://duckdb.org/docs/sql/meta/duckdb_table_functions)
+
+- DuckDB's SQL Dialect
+
+- [Overview](https://duckdb.org/docs/sql/dialect/overview)
+- [Indexing](https://duckdb.org/docs/sql/dialect/indexing)
+- [Friendly SQL](https://duckdb.org/docs/sql/dialect/friendly_sql)
+- [Keywords and Identifiers](https://duckdb.org/docs/sql/dialect/keywords_and_identifiers)
+- [Order Preservation](https://duckdb.org/docs/sql/dialect/order_preservation)
+- [PostgreSQL Compatibility](https://duckdb.org/docs/sql/dialect/postgresql_compatibility)
+
+- [Samples](https://duckdb.org/docs/sql/samples)
+
+- Configuration
+
+- [Overview](https://duckdb.org/docs/configuration/overview)
+- [Pragmas](https://duckdb.org/docs/configuration/pragmas)
+- [Secrets Manager](https://duckdb.org/docs/configuration/secrets_manager)
+
+- Extensions
+
+- [Overview](https://duckdb.org/docs/extensions/overview)
+- [Core Extensions](https://duckdb.org/docs/extensions/core_extensions)
+- [Community Extensions](https://duckdb.org/docs/extensions/community_extensions)
+- [Working with Extensions](https://duckdb.org/docs/extensions/working_with_extensions)
+- [Versioning of Extensions](https://duckdb.org/docs/extensions/versioning_of_extensions)
+- [Arrow](https://duckdb.org/docs/extensions/arrow)
+- [AutoComplete](https://duckdb.org/docs/extensions/autocomplete)
+- [AWS](https://duckdb.org/docs/extensions/aws)
+- [Azure](https://duckdb.org/docs/extensions/azure)
+- [Delta](https://duckdb.org/docs/extensions/delta)
+- [Excel](https://duckdb.org/docs/extensions/excel)
+- [Full Text Search](https://duckdb.org/docs/extensions/full_text_search)
+- httpfs (HTTP and S3)
+
+- [Overview](https://duckdb.org/docs/extensions/httpfs/overview)
+- [HTTP(S) Support](https://duckdb.org/docs/extensions/httpfs/https)
+- [Hugging Face](https://duckdb.org/docs/extensions/httpfs/hugging_face)
+- [S3 API Support](https://duckdb.org/docs/extensions/httpfs/s3api)
+- [Legacy Authentication Scheme for S3 API](https://duckdb.org/docs/extensions/httpfs/s3api_legacy_authentication)
+
+- [Iceberg](https://duckdb.org/docs/extensions/iceberg)
+- [ICU](https://duckdb.org/docs/extensions/icu)
+- [inet](https://duckdb.org/docs/extensions/inet)
+- [jemalloc](https://duckdb.org/docs/extensions/jemalloc)
+- [MySQL](https://duckdb.org/docs/extensions/mysql)
+- [PostgreSQL](https://duckdb.org/docs/extensions/postgres)
+- Spatial
+
+- [Overview](https://duckdb.org/docs/extensions/spatial/overview)
+- [Function Reference](https://duckdb.org/docs/extensions/spatial/functions)
+- [R-Tree Indexes](https://duckdb.org/docs/extensions/spatial/r-tree_indexes)
+- [GDAL Integration](https://duckdb.org/docs/extensions/spatial/gdal)
+
+- [SQLite](https://duckdb.org/docs/extensions/sqlite)
+- [Substrait](https://duckdb.org/docs/extensions/substrait)
+- [TPC-DS](https://duckdb.org/docs/extensions/tpcds)
+- [TPC-H](https://duckdb.org/docs/extensions/tpch)
+- [VSS](https://duckdb.org/docs/extensions/vss)
+
+- Guides
+
+- [Overview](https://duckdb.org/docs/guides/overview)
+- Data Viewers
+
+- [Tableau](https://duckdb.org/docs/guides/data_viewers/tableau)
+- [CLI Charting with YouPlot](https://duckdb.org/docs/guides/data_viewers/youplot)
+
+- Database Integration
+
+- [Overview](https://duckdb.org/docs/guides/database_integration/overview)
+- [MySQL Import](https://duckdb.org/docs/guides/database_integration/mysql)
+- [PostgreSQL Import](https://duckdb.org/docs/guides/database_integration/postgres)
+- [SQLite Import](https://duckdb.org/docs/guides/database_integration/sqlite)
+
+- File Formats
+
+- [Overview](https://duckdb.org/docs/guides/file_formats/overview)
+- [CSV Import](https://duckdb.org/docs/guides/file_formats/csv_import)
+- [CSV Export](https://duckdb.org/docs/guides/file_formats/csv_export)
+- [Directly Reading Files](https://duckdb.org/docs/guides/file_formats/read_file)
+- [Excel Import](https://duckdb.org/docs/guides/file_formats/excel_import)
+- [Excel Export](https://duckdb.org/docs/guides/file_formats/excel_export)
+- [JSON Import](https://duckdb.org/docs/guides/file_formats/json_import)
+- [JSON Export](https://duckdb.org/docs/guides/file_formats/json_export)
+- [Parquet Import](https://duckdb.org/docs/guides/file_formats/parquet_import)
+- [Parquet Export](https://duckdb.org/docs/guides/file_formats/parquet_export)
+- [Querying Parquet Files](https://duckdb.org/docs/guides/file_formats/query_parquet)
+
+- Network and Cloud Storage
+
+- [Overview](https://duckdb.org/docs/guides/network_cloud_storage/overview)
+- [HTTP Parquet Import](https://duckdb.org/docs/guides/network_cloud_storage/http_import)
+- [S3 Parquet Import](https://duckdb.org/docs/guides/network_cloud_storage/s3_import)
+- [S3 Parquet Export](https://duckdb.org/docs/guides/network_cloud_storage/s3_export)
+- [S3 Iceberg Import](https://duckdb.org/docs/guides/network_cloud_storage/s3_iceberg_import)
+- [S3 Express One](https://duckdb.org/docs/guides/network_cloud_storage/s3_express_one)
+- [GCS Import](https://duckdb.org/docs/guides/network_cloud_storage/gcs_import)
+- [Cloudflare R2 Import](https://duckdb.org/docs/guides/network_cloud_storage/cloudflare_r2_import)
+- [DuckDB over HTTPS / S3](https://duckdb.org/docs/guides/network_cloud_storage/duckdb_over_https_or_s3)
+
+- Meta Queries
+
+- [Describe Table](https://duckdb.org/docs/guides/meta/describe)
+- [EXPLAIN: Inspect Query Plans](https://duckdb.org/docs/guides/meta/explain)
+- [EXPLAIN ANALYZE: Profile Queries](https://duckdb.org/docs/guides/meta/explain_analyze)
+- [List Tables](https://duckdb.org/docs/guides/meta/list_tables)
+- [Summarize](https://duckdb.org/docs/guides/meta/summarize)
+- [DuckDB Environment](https://duckdb.org/docs/guides/meta/duckdb_environment)
+
+- ODBC
+
+- [ODBC Guide](https://duckdb.org/docs/guides/odbc/general)
+
+- Performance
+
+- [Overview](https://duckdb.org/docs/guides/performance/overview)
+- [Environment](https://duckdb.org/docs/guides/performance/environment)
+- [Import](https://duckdb.org/docs/guides/performance/import)
+- [Schema](https://duckdb.org/docs/guides/performance/schema)
+- [Indexing](https://duckdb.org/docs/guides/performance/indexing)
+- [Join Operations](https://duckdb.org/docs/guides/performance/join_operations)
+- [File Formats](https://duckdb.org/docs/guides/performance/file_formats)
+- [How to Tune Workloads](https://duckdb.org/docs/guides/performance/how_to_tune_workloads)
+- [My Workload Is Slow](https://duckdb.org/docs/guides/performance/my_workload_is_slow)
+- [Benchmarks](https://duckdb.org/docs/guides/performance/benchmarks)
+
+- Python
+
+- [Installation](https://duckdb.org/docs/guides/python/install)
+- [Executing SQL](https://duckdb.org/docs/guides/python/execute_sql)
+- [Jupyter Notebooks](https://duckdb.org/docs/guides/python/jupyter)
+- [SQL on Pandas](https://duckdb.org/docs/guides/python/sql_on_pandas)
+- [Import from Pandas](https://duckdb.org/docs/guides/python/import_pandas)
+- [Export to Pandas](https://duckdb.org/docs/guides/python/export_pandas)
+- [Import from Numpy](https://duckdb.org/docs/guides/python/import_numpy)
+- [Export to Numpy](https://duckdb.org/docs/guides/python/export_numpy)
+- [SQL on Arrow](https://duckdb.org/docs/guides/python/sql_on_arrow)
+- [Import from Arrow](https://duckdb.org/docs/guides/python/import_arrow)
+- [Export to Arrow](https://duckdb.org/docs/guides/python/export_arrow)
+- [Relational API on Pandas](https://duckdb.org/docs/guides/python/relational_api_pandas)
+- [Multiple Python Threads](https://duckdb.org/docs/guides/python/multiple_threads)
+- [Integration with Ibis](https://duckdb.org/docs/guides/python/ibis)
+- [Integration with Polars](https://duckdb.org/docs/guides/python/polars)
+- [Using fsspec Filesystems](https://duckdb.org/docs/guides/python/filesystems)
+
+- SQL Editors
+
+- [DBeaver SQL IDE](https://duckdb.org/docs/guides/sql_editors/dbeaver)
+
+- SQL Features
+
+- [AsOf Join](https://duckdb.org/docs/guides/sql_features/asof_join)
+- [Full-Text Search](https://duckdb.org/docs/guides/sql_features/full_text_search)
+- [query and query_table Functions](https://duckdb.org/docs/guides/sql_features/query_and_query_table_functions)
+
+- Snippets
+
+- [Create Synthetic Data](https://duckdb.org/docs/guides/snippets/create_synthetic_data)
+- [Sharing Macros](https://duckdb.org/docs/guides/snippets/sharing_macros)
+
+- [Glossary of Terms](https://duckdb.org/docs/guides/glossary)
+- [Browse Offline](https://duckdb.org/docs/guides/offline-copy)
+
+- Operations Manual
+
+- [Overview](https://duckdb.org/docs/operations_manual/overview)
+- [Limits](https://duckdb.org/docs/operations_manual/limits)
+- [Non-Deterministic Behavior](https://duckdb.org/docs/operations_manual/non-deterministic_behavior)
+- [Embedding DuckDB](https://duckdb.org/docs/operations_manual/embedding_duckdb)
+- DuckDB's Footprint
+
+- [Files Created by DuckDB](https://duckdb.org/docs/operations_manual/footprint_of_duckdb/files_created_by_duckdb)
+- [Gitignore for DuckDB](https://duckdb.org/docs/operations_manual/footprint_of_duckdb/gitignore_for_duckdb)
+- [Reclaiming Space](https://duckdb.org/docs/operations_manual/footprint_of_duckdb/reclaiming_space)
+
+- Securing DuckDB
+
+- [Overview](https://duckdb.org/docs/operations_manual/securing_duckdb/overview)
+- [Securing Extensions](https://duckdb.org/docs/operations_manual/securing_duckdb/securing_extensions)
+
+- Development
+
+- [DuckDB Repositories](https://duckdb.org/docs/dev/repositories)
+- Testing
+
+- [Overview](https://duckdb.org/docs/dev/sqllogictest/overview)
+- [sqllogictest Introduction](https://duckdb.org/docs/dev/sqllogictest/intro)
+- [Writing Tests](https://duckdb.org/docs/dev/sqllogictest/writing_tests)
+- [Debugging](https://duckdb.org/docs/dev/sqllogictest/debugging)
+- [Result Verification](https://duckdb.org/docs/dev/sqllogictest/result_verification)
+- [Persistent Testing](https://duckdb.org/docs/dev/sqllogictest/persistent_testing)
+- [Loops](https://duckdb.org/docs/dev/sqllogictest/loops)
+- [Multiple Connections](https://duckdb.org/docs/dev/sqllogictest/multiple_connections)
+- [Catch](https://duckdb.org/docs/dev/sqllogictest/catch)
+
+- [Profiling](https://duckdb.org/docs/dev/profiling)
+- [Release Calendar](https://duckdb.org/docs/dev/release_calendar)
+- Building
+
+- [Overview](https://duckdb.org/docs/dev/building/overview)
+- [Build Instructions](https://duckdb.org/docs/dev/building/build_instructions)
+- [Build Configuration](https://duckdb.org/docs/dev/building/build_configuration)
+- [Building Extensions](https://duckdb.org/docs/dev/building/building_extensions)
+- [Platforms](https://duckdb.org/docs/dev/building/platforms)
+- [Troubleshooting](https://duckdb.org/docs/dev/building/troubleshooting)
+
+- [Benchmark Suite](https://duckdb.org/docs/dev/benchmark)
+
+- Internals
+
+- [Overview](https://duckdb.org/docs/internals/overview)
+- [Storage Versions and Format](https://duckdb.org/docs/internals/storage)
+- [Execution Format](https://duckdb.org/docs/internals/vector)
+- [Pivot](https://duckdb.org/docs/internals/pivot)
+
+- [Sitemap](https://duckdb.org/docs/sitemap)
+- [Why DuckDB](https://duckdb.org/why_duckdb)
+- [Media](https://duckdb.org/media)
+- [FAQ](https://duckdb.org/faq)
+- [Code of Conduct](https://duckdb.org/code_of_conduct)
+- [Live Demo](https://shell.duckdb.org/)
+
+Documentation / Data Import / JSON Files
+
+Dark Mode
+
+1.1 (stable)
+
+- [1.1 (stable)](https://duckdb.org/docs/data/json/json_functions.html)
+
+JSON Processing Functions
+
+## [JSON Extraction Functions](https://duckdb.org/docs/data/json/json_functions#json-extraction-functions)
+
+There are two extraction functions, which have their respective operators. The operators can only be used if the string is stored as the `JSON` logical type. These functions supports the same two location notations as [JSON Scalar functions](https://duckdb.org/docs/data/json/json_functions#json-scalar-functions).
+
+| Function                          | Alias                    | Operator | Description                                                                                                                       |
+| --------------------------------- | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `json_exists(json, path)`         |                          |          | Returns `true` if the supplied path exists in the `json`, and `false` otherwise.                                                  |
+| `json_extract(json, path)`        | `json_extract_path`      | `->`     | Extracts `JSON` from `json` at the given `path`. If `path` is a `LIST`, the result will be a `LIST` of `JSON`.                    |
+| `json_extract_string(json, path)` | `json_extract_path_text` | `->>`    | Extracts `VARCHAR` from `json` at the given `path`. If `path` is a `LIST`, the result will be a `LIST` of `VARCHAR`.              |
+| `json_value(json, path)`          |                          |          | Extracts `JSON` from `json` at the given `path`. If the `json` at the supplied path is not a scalar value, it will return `NULL`. |
+
+Note that the equality comparison operator (`=`) has a higher precedence than the `->` JSON extract operator. Therefore, surround the uses of the `->` operator with parentheses when making equality comparisons. For example:
+
+```
+SELECT ((JSON '{"field": 42}')->'field') = 42;
+```
+
+> Warning DuckDB's JSON data type uses [0-based indexing](https://duckdb.org/docs/data/json/json_functions#indexing).
+
+Examples:
+
+```
+CREATE TABLE example (j JSON);
+INSERT INTO example VALUES
+    ('{ "family": "anatidae", "species": [ "duck", "goose", "swan", null ] }');
+```
+
+```
+SELECT json_extract(j, '$.family') FROM example;
+```
+
+```
+"anatidae"
+```
+
+```
+SELECT j->'$.family' FROM example;
+```
+
+```
+"anatidae"
+```
+
+```
+SELECT j->'$.species[0]' FROM example;
+```
+
+```
+"duck"
+```
+
+```
+SELECT j->'$.species[*]' FROM example;
+```
+
+```
+["duck", "goose", "swan", null]
+```
+
+```
+SELECT j->>'$.species[*]' FROM example;
+```
+
+```
+[duck, goose, swan, null]
+```
+
+```
+SELECT j->'$.species'->0 FROM example;
+```
+
+```
+"duck"
+```
+
+```
+SELECT j->'species'->['0','1'] FROM example;
+```
+
+```
+["duck", "goose"]
+```
+
+```
+SELECT json_extract_string(j, '$.family') FROM example;
+```
+
+```
+anatidae
+```
+
+```
+SELECT j->>'$.family' FROM example;
+```
+
+```
+anatidae
+```
+
+```
+SELECT j->>'$.species[0]' FROM example;
+```
+
+```
+duck
+```
+
+```
+SELECT j->'species'->>0 FROM example;
+```
+
+```
+duck
+```
+
+```
+SELECT j->'species'->>['0','1'] FROM example;
+```
+
+```
+[duck, goose]
+```
+
+Note that DuckDB's JSON data type uses [0-based indexing](https://duckdb.org/docs/data/json/json_functions#indexing).
+
+If multiple values need to be extracted from the same JSON, it is more efficient to extract a list of paths:
+
+The following will cause the JSON to be parsed twice,:
+
+Resulting in a slower query that uses more memory:
+
+```
+SELECT
+    json_extract(j, 'family') AS family,
+    json_extract(j, 'species') AS species
+FROM example;
+```
+
+| family     | species                        |
+| ---------- | ------------------------------ |
+| "anatidae" | \["duck","goose","swan",null\] |
+
+The following produces the same result but is faster and more memory-efficient:
+
+```
+WITH extracted AS (
+    SELECT json_extract(j, ['family', 'species']) AS extracted_list
+    FROM example
+)
+SELECT
+    extracted_list[1] AS family,
+    extracted_list[2] AS species
+FROM extracted;
+```
+
+## [JSON Scalar Functions](https://duckdb.org/docs/data/json/json_functions#json-scalar-functions)
+
+The following scalar JSON functions can be used to gain information about the stored JSON values. With the exception of `json_valid(json)`, all JSON functions produce an error when invalid JSON is supplied.
+
+We support two kinds of notations to describe locations within JSON: [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) and JSONPath.
+
+| Function                                    | Description                                                                                                                                                                                                                                                                        |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `json_array_length(json[, path])`           | Return the number of elements in the JSON array `json`, or `0` if it is not a JSON array. If `path` is specified, return the number of elements in the JSON array at the given `path`. If `path` is a `LIST`, the result will be `LIST` of array lengths.                          |
+| `json_contains(json_haystack, json_needle)` | Returns `true` if `json_needle` is contained in `json_haystack`. Both parameters are of JSON type, but `json_needle` can also be a numeric value or a string, however the string must be wrapped in double quotes.                                                                 |
+| `json_keys(json[, path])`                   | Returns the keys of `json` as a `LIST` of `VARCHAR`, if `json` is a JSON object. If `path` is specified, return the keys of the JSON object at the given `path`. If `path` is a `LIST`, the result will be `LIST` of `LIST` of `VARCHAR`.                                          |
+| `json_structure(json)`                      | Return the structure of `json`. Defaults to `JSON` if the structure is inconsistent (e.g., incompatible types in an array).                                                                                                                                                        |
+| `json_type(json[, path])`                   | Return the type of the supplied `json`, which is one of `ARRAY`, `BIGINT`, `BOOLEAN`, `DOUBLE`, `OBJECT`, `UBIGINT`, `VARCHAR`, and `NULL`. If `path` is specified, return the type of the element at the given `path`. If `path` is a `LIST`, the result will be `LIST` of types. |
+| `json_valid(json)`                          | Return whether `json` is valid JSON.                                                                                                                                                                                                                                               |
+| `json(json)`                                | Parse and minify `json`.                                                                                                                                                                                                                                                           |
+
+The JSONPointer syntax separates each field with a `/`. For example, to extract the first element of the array with key `duck`, you can do:
+
+```
+SELECT json_extract('{"duck": [1, 2, 3]}', '/duck/0');
+```
+
+```
+1
+```
+
+The JSONPath syntax separates fields with a `.`, and accesses array elements with `[i]`, and always starts with `$`. Using the same example, we can do the following:
+
+```
+SELECT json_extract('{"duck": [1, 2, 3]}', '$.duck[0]');
+```
+
+```
+1
+```
+
+Note that DuckDB's JSON data type uses [0-based indexing](https://duckdb.org/docs/data/json/json_functions#indexing).
+
+JSONPath is more expressive, and can also access from the back of lists:
+
+```
+SELECT json_extract('{"duck": [1, 2, 3]}', '$.duck[#-1]');
+```
+
+```
+3
+```
+
+JSONPath also allows escaping syntax tokens, using double quotes:
+
+```
+SELECT json_extract('{"duck.goose": [1, 2, 3]}', '$."duck.goose"[1]');
+```
+
+```
+2
+```
+
+Examples using the [anatidae biological family](https://en.wikipedia.org/wiki/Anatidae):
+
+```
+CREATE TABLE example (j JSON);
+INSERT INTO example VALUES
+    ('{ "family": "anatidae", "species": [ "duck", "goose", "swan", null ] }');
+```
+
+```
+SELECT json(j) FROM example;
+```
+
+```
+{"family":"anatidae","species":["duck","goose","swan",null]}
+```
+
+```
+SELECT j.family FROM example;
+```
+
+```
+"anatidae"
+```
+
+```
+SELECT j.species[0] FROM example;
+```
+
+```
+"duck"
+```
+
+```
+SELECT json_valid(j) FROM example;
+```
+
+```
+true
+```
+
+```
+SELECT json_valid('{');
+```
+
+```
+false
+```
+
+```
+SELECT json_array_length('["duck", "goose", "swan", null]');
+```
+
+```
+4
+```
+
+```
+SELECT json_array_length(j, 'species') FROM example;
+```
+
+```
+4
+```
+
+```
+SELECT json_array_length(j, '/species') FROM example;
+```
+
+```
+4
+```
+
+```
+SELECT json_array_length(j, '$.species') FROM example;
+```
+
+```
+4
+```
+
+```
+SELECT json_array_length(j, ['$.species']) FROM example;
+```
+
+```
+[4]
+```
+
+```
+SELECT json_type(j) FROM example;
+```
+
+```
+OBJECT
+```
+
+```
+SELECT json_keys(j) FROM example;
+```
+
+```
+[family, species]
+```
+
+```
+SELECT json_structure(j) FROM example;
+```
+
+```
+{"family":"VARCHAR","species":["VARCHAR"]}
+```
+
+```
+SELECT json_structure('["duck", {"family": "anatidae"}]');
+```
+
+```
+["JSON"]
+```
+
+```
+SELECT json_contains('{"key": "value"}', '"value"');
+```
+
+```
+true
+```
+
+```
+SELECT json_contains('{"key": 1}', '1');
+```
+
+```
+true
+```
+
+```
+SELECT json_contains('{"top_key": {"key": "value"}}', '{"key": "value"}');
+```
+
+```
+true
+```
+
+## [JSON Aggregate Functions](https://duckdb.org/docs/data/json/json_functions#json-aggregate-functions)
+
+There are three JSON aggregate functions.
+
+| Function                        | Description                                                            |
+| ------------------------------- | ---------------------------------------------------------------------- |
+| `json_group_array(any)`         | Return a JSON array with all values of `any` in the aggregation.       |
+| `json_group_object(key, value)` | Return a JSON object with all `key`, `value` pairs in the aggregation. |
+| `json_group_structure(json)`    | Return the combined `json_structure` of all `json` in the aggregation. |
+
+Examples:
+
+```
+CREATE TABLE example1 (k VARCHAR, v INTEGER);
+INSERT INTO example1 VALUES ('duck', 42), ('goose', 7);
+```
+
+```
+SELECT json_group_array(v) FROM example1;
+```
+
+```
+[42, 7]
+```
+
+```
+SELECT json_group_object(k, v) FROM example1;
+```
+
+```
+{"duck":42,"goose":7}
+```
+
+```
+CREATE TABLE example2 (j JSON);
+INSERT INTO example2 VALUES
+    ('{"family": "anatidae", "species": ["duck", "goose"], "coolness": 42.42}'),
+    ('{"family": "canidae", "species": ["labrador", "bulldog"], "hair": true}');
+```
+
+```
+SELECT json_group_structure(j) FROM example2;
+```
+
+```
+{"family":"VARCHAR","species":["VARCHAR"],"coolness":"DOUBLE","hair":"BOOLEAN"}
+```
+
+## [Transforming JSON to Nested Types](https://duckdb.org/docs/data/json/json_functions#transforming-json-to-nested-types)
+
+In many cases, it is inefficient to extract values from JSON one-by-one. Instead, we can “extract” all values at once, transforming JSON to the nested types `LIST` and `STRUCT`.
+
+| Function                                 | Description                                                            |
+| ---------------------------------------- | ---------------------------------------------------------------------- |
+| `json_transform(json, structure)`        | Transform `json` according to the specified `structure`.               |
+| `from_json(json, structure)`             | Alias for `json_transform`.                                            |
+| `json_transform_strict(json, structure)` | Same as `json_transform`, but throws an error when type casting fails. |
+| `from_json_strict(json, structure)`      | Alias for `json_transform_strict`.                                     |
+
+The `structure` argument is JSON of the same form as returned by `json_structure`. The `structure` argument can be modified to transform the JSON into the desired structure and types. It is possible to extract fewer key/value pairs than are present in the JSON, and it is also possible to extract more: missing keys become `NULL`.
+
+Examples:
+
+```
+CREATE TABLE example (j JSON);
+INSERT INTO example VALUES
+    ('{"family": "anatidae", "species": ["duck", "goose"], "coolness": 42.42}'),
+    ('{"family": "canidae", "species": ["labrador", "bulldog"], "hair": true}');
+```
+
+```
+SELECT json_transform(j, '{"family": "VARCHAR", "coolness": "DOUBLE"}') FROM example;
+```
+
+```
+{'family': anatidae, 'coolness': 42.420000}
+{'family': canidae, 'coolness': NULL}
+```
+
+```
+SELECT json_transform(j, '{"family": "TINYINT", "coolness": "DECIMAL(4, 2)"}') FROM example;
+```
+
+```
+{'family': NULL, 'coolness': 42.42}
+{'family': NULL, 'coolness': NULL}
+```
+
+```
+SELECT json_transform_strict(j, '{"family": "TINYINT", "coolness": "DOUBLE"}') FROM example;
+```
+
+```
+Invalid Input Error: Failed to cast value: "anatidae"
+```
+
+##### About this page
+
+- [Report content issue](<https://github.com/duckdb/duckdb-web/issues/new?title=Issue%20found%20on%20page%20%27JSON%20Processing%20Functions%27&body=%0A%3E%20Please%20describe%20the%20problem%20you%20encountered%20in%20the%20DuckDB%20documentation%20and%20include%20the%20%22Page%20URL%22%20link%20shown%20below.%0A%3E%20Note:%20only%20create%20an%20issue%20if%20you%20wish%20to%20report%20a%20problem%20with%20the%20DuckDB%20documentation.%20For%20questions%20about%20DuckDB%20or%20the%20use%20of%20certain%20DuckDB%20features,%20use%20[GitHub%20Discussions](https://github.com/duckdb/duckdb/discussions/),%20[Stack%20Overflow](https://stackoverflow.com/questions/tagged/duckdb),%20or%20[Discord](https://discord.duckdb.org/).%0A%0APage%20URL:%20%3Chttps://duckdb.org/docs/data/json/json_functions.html%3E%0A> "Create GitHub issue")
+- [Edit this page on GitHub](https://github.com/duckdb/duckdb-web/edit/main/docs/data/json/json_functions.md "Go to GitHub")
+
+##### In this article
+
+- [JSON Extraction Functions](https://duckdb.org/docs/data/json/json_functions#json-extraction-functions)
+- [JSON Scalar Functions](https://duckdb.org/docs/data/json/json_functions#json-scalar-functions)
+- [JSON Aggregate Functions](https://duckdb.org/docs/data/json/json_functions#json-aggregate-functions)
+- [Transforming JSON to Nested Types](https://duckdb.org/docs/data/json/json_functions#transforming-json-to-nested-types)
